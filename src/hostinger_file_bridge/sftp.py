@@ -184,7 +184,11 @@ class SFTPBridge:
         if not path.is_file():
             raise FileNotFoundError(path)
         expected_size = path.stat().st_size
-        expected_sha = hashlib.sha256(path.read_bytes()).hexdigest()
+        hasher = hashlib.sha256()
+        with path.open("rb") as digest_src:
+            for chunk in iter(lambda: digest_src.read(1024 * 1024), b""):
+                hasher.update(chunk)
+        expected_sha = hasher.hexdigest()
         with path.open("rb") as src:
             return self.upload_stream(
                 src,
