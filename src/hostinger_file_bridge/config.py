@@ -22,7 +22,6 @@ class Settings(BaseSettings):
     upload_ticket_ttl: int = 900
     max_upload_bytes: int = 512 * 1024 * 1024
 
-    http_bearer_token: str | None = None
     source_url_hosts: str = ""
     known_hosts_path: Path | None = None
     log_level: str = "INFO"
