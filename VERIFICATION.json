@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "verified_at": "2026-08-18T05:58:00Z",
+  "local_test_result": {
+    "pytest": "12 passed",
+    "python_compile": true,
+    "path_jail_tests": true,
+    "upload_ticket_roundtrip": true,
+    "upload_ticket_tamper_rejection": true
+  },
+  "security_hardening": {
+    "unknown_ssh_hosts_rejected": true,
+    "remote_root_jail": true,
+    "atomic_temp_upload_then_rename": true,
+    "overwrite_default": false,
+    "url_ingestion_default": "disabled until HFB_SOURCE_URL_HOSTS is configured",
+    "url_public_ip_check": true,
+    "zip_symlinks_rejected": true,
+    "large_local_file_hashing": "streamed in 1 MiB chunks"
+  },
+  "live_sftp_test": "NOT_RUN: repository/runtime still needs a real SSH private key and verified known_hosts secret",
+  "live_remote_mcp_test": "NOT_RUN: service still needs deployment to an HTTPS endpoint"
+}
